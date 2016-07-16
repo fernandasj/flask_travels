@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="add">
+    <a href="http://127.0.0.1:5000/add_veiculo"><span class="glyphicon glyphicon-plus">AdicionarVeiculo</span></a>
+</div>
+<h2><strong> Veiculos: </strong></h2>
+
+<table class="table table-condensed">
+        <tr class="success">
+            <td><strong> Id_Veiculo </strong></td>
+            <td><strong> Placa </strong></td>
+            <td><strong> Modelo </strong></td>
+            <td><strong> Status </strong></td>
+        </tr>
+    {% for veiculo in veiculos %}
+        <tr>
+            <td>{{ veiculo.id_veiculo }}</td>
+            <td> {{ veiculo.placa }} </td>
+            <td> {{ veiculo.modelo }} </td>
+            <td> {{ veiculo.status.decode('utf-8') }} </td>
+            <td><a href="http://127.0.0.1:5000/editar_veiculo/{{ veiculo.id_veiculo }}"><span class="btn btn-default"> Editar </span></a></td>
+            <td><a href="http://127.0.0.1:5000/del_veiculo/{{ veiculo.id_veiculo }}"><span class="btn btn-danger"> Deletar </span></a></td>
+        </tr>
+    {% endfor %}
+</table>
+<a href="http://127.0.0.1:5000/ifpb_transportes"><span class="btn btn-primary"> Menu </span></a>
+
+{% endblock %}

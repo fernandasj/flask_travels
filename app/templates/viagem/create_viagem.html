@@ -1,0 +1,78 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<h2><strong>Adicionar Viagem:</strong></h2>
+
+<form class="form-horizontal" action="" method="post" name="create_viagem">
+  <div class="form-group">
+    <label for="Cod_veiculo" class="col-sm-2 control-label">Cod_veiculo:
+    </label>
+
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Cod_veiculo" name="Cod_veiculo">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Cod_motorista" class="col-sm-2 control-label">Cod_motorista:
+
+    </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Cod_motorista" name="Cod_motorista">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="DATA_SAIDA" class="col-sm-2 control-label">DATA_SAIDA:
+
+    </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="DATA_SAIDA" name="DATA_SAIDA">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="DATA_CHEGADA" class="col-sm-2 control-label">DATA_CHEGADA:
+
+    </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="DATA_CHEGADA" name="DATA_CHEGADA">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="KM_SAIDA" class="col-sm-2 control-label">KM_SAIDA:
+    </label>
+
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="KM_SAIDA" name="KM_SAIDA">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="KM_CHEGADA" class="col-sm-2 control-label">KM_CHEGADA:
+    </label>
+
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="KM_CHEGADA" name="KM_CHEGADA">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="Solicitante" class="col-sm-2 control-label">Solicitante:
+    </label>
+
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Solicitante" name="Solicitante">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="Descricao" class="col-sm-2 control-label">Descricao:
+    </label>
+
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Descricao" name="Descricao">
+    </div>
+  </div>
+   <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success">Confirmar</button>
+      <a href="http://127.0.0.1:5000/viagem"><span class="btn btn-danger"> Cancelar </span></a>
+    </div>
+  </div>
+</form>
+{% endblock %}
+

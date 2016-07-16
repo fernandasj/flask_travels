@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="add">
+    <a href="http://127.0.0.1:5000/add_motorista"><span class="glyphicon glyphicon-plus">AdicionarMotorista</span></a>
+</div>
+<h2><strong> Motoristas: </strong></h2>
+
+<table class="table table-condensed">
+        <tr class="success">
+            <td><strong> Id_motorista </strong></td>
+            <td><strong> Matricula </strong></td>
+            <td><strong> Nome </strong></td>
+            <td><strong> CNH </strong></td>
+        </tr>
+    {% for motorista in motoristas %}
+        <tr>
+            <td> {{ motorista.id_motorista }} </td>
+            <td> {{ motorista.matricula }} </td>
+            <td> {{ motorista.nome }} </td>
+            <td> {{ motorista.cnh}} </td>
+            <td><a href="http://127.0.0.1:5000/editar_motorista/{{ motorista.id_motorista }}"><span class="btn btn-default"> Editar </span></a></td>
+            <td><a href="http://127.0.0.1:5000/del_motorista/{{ motorista.id_motorista }}"><span class="btn btn-danger"> Deletar </span></a></td>
+        </tr>
+    {% endfor %}
+</table>
+<a href="http://127.0.0.1:5000/ifpb_transportes"><span class="btn btn-primary"> Menu </span></a>
+
+{% endblock %}

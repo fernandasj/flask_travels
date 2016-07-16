@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-xs-12 col-md-12">
+	<td>
+		<a class="btn btn-success" href="http://127.0.0.1:5000/list_usuario" role="button">Usuário</a>
+	<td>
+		<a class="btn btn-success" href="http://127.0.0.1:5000/login" role="button">Sair</a>
+	</td>
+</div>
+<div class="menu_div">
+	<div class="menu">
+		<a href="{{url_for('motorista', filename='create_motorista.html')}}"><p>Motorista</p>
+			<img src="{{url_for('static', filename='img/motorista.png')}}"/>
+		</a>
+	</div>
+
+	<div class="menu">
+		<a href="{{url_for('veiculo', filename='create_veiculo.html')}}"><p>Veículo</p>
+			<img src="{{url_for('static', filename='img/transporte.png')}}"/>
+		</a>
+	</div>
+
+</div>
+
+<div class="menu_div">
+	<div class="menu">
+		<a href="{{url_for('viagem', filename='create_viagem.html')}}"><p>Viagem</p>
+			<img src="{{url_for('static', filename='img/viagem.png')}}"/>
+		</a>
+	</div>
+
+	<div class="menu">
+		<a href="{{url_for('revisao', filename='create_revisao.html')}}"><p>Revisão</p>
+			<img  src="{{url_for('static', filename='img/revisao.png')}}"/>
+		</a>
+	</div>
+</div>
+{% endblock %}

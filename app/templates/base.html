@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title>{{title}}</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}"/>
+	</head>
+	<body>
+		<div class="top-page">
+			<img id="logo" class="page-header" src="{{url_for('static', filename='img/logo.png')}}"/></td>
+		</div>
+		<div class="center-page">
+			{% block content %}
+			{% endblock %}
+		</div>
+
+		<div class="bottom-page">
+			<h3>IFPB - Instituto Federal de educação, ciência e tecnologia</h3>
+			<h3>Rua: José Dantas Nobres; Bairro: Jardim Oásis; Cajazeiras-PB;</h3>
+		</div>
+	</body>
+</html>

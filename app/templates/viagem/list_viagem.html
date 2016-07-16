@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="center">
+<div class="add">
+    <a href="http://127.0.0.1:5000/add_viagem"><span class="glyphicon glyphicon-plus">AdicionarViagem</span></a>
+</div>
+<h2><strong> Viagens: </strong></h2>
+
+<table class="table table-condensed">
+        <tr class="success">
+            <td><strong> Id_viagem </strong></td>
+            <td><strong> Cod_veículo </strong></td>
+            <td><strong> Cod_motorista </strong></td>
+            <td><strong> DATA_SAIDA </strong></td>
+            <td><strong> DATA_CHEGADA </strong></td>
+            <td><strong> KM_SAIDA</strong></td>
+            <td><strong> KM_CHEGADA </strong></td>
+            <td><strong> Solicitante </strong></td>
+            <td><strong> Descricao </strong></td>
+        </tr>
+    {% for viagem in viagens %}
+        <tr>
+            <td>{{ viagem.id_viagem }}</td>
+            <td> {{ viagem.cod_veiculo }} </td>
+            <td> {{ viagem.cod_motorista }} </td>
+            <td> {{ viagem.data_saida }} </td>
+            <td> {{ viagem.data_chegada }} </td>
+            <td> {{ viagem.km_saida }} </td>
+            <td> {{ viagem.km_chegada }} </td>
+            <td> {{ viagem.solicitante.decode('utf-8') }} </td>
+            <td> {{ viagem.descricao.decode('utf-8')}} </td>
+            <td><a href="http://127.0.0.1:5000/editar_viagem/{{ viagem.id_viagem }}"><span class="btn btn-default"> Editar </span></a></td>
+            <td><a href="http://127.0.0.1:5000/del_viagem/{{ viagem.id_viagem }}"><span class="btn btn-danger"> Deletar </span></a></td>
+        </tr>
+    {% endfor %}
+</table>
+<a href="http://127.0.0.1:5000/ifpb_transportes"><span class="btn btn-primary"> Menu </span></a>
+</div>
+{% endblock %}

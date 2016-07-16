@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h2><strong>Adicionar Revisão: </strong></h2>
+
+<form class="form-horizontal" action="" method="post" name="create_revisao">
+  <div class="form-group">
+    <label for="Cod_veiculo" class="col-sm-2 control-label">Cod_veiculo:
+
+    </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="nome" name="Cod_veiculo">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Descricao" class="col-sm-2 control-label"> Descricao:
+
+    </label>
+    <div class="col-sm-10">
+      <textarea class="form-control" rows="5" id="descricao" name="Descricao"></textarea>
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="DATA_REVISAO" class="col-sm-2 control-label">DATA_REVISAO:
+
+    </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="DATA_REVISAO" name="DATA_REVISAO">
+    </div>
+  </div>
+
+   <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success">Confirmar</button>
+      <a href="http://127.0.0.1:5000/revisao"><span class="btn btn-danger"> Cancelar </span></a>
+    </div>
+  </div>
+</form>
+{% endblock %}
+

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="add">
+    <a href="http://127.0.0.1:5000/add_usuario"><span class="glyphicon glyphicon-plus">AdicionarUsuario</span></a>
+</div>
+<h2><strong> Usuarios: </strong></h2>
+
+<table class="table table-condensed">
+        <tr class="success">
+            <td><strong> Id_usuario </strong></td>
+            <td><strong> Matricula </strong></td>
+            <td><strong> Nome </strong></td>
+            <td><strong> CPF </strong></td>
+            <td><strong> Email </strong></td>
+
+        </tr>
+    {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.id_usuario }}</td>
+            <td> {{ usuario.matricula }} </td>
+            <td> {{ usuario.nome }} </td>
+            <td> {{ usuario.cpf }} </td>
+            <td> {{ usuario.email }} </td>
+
+            <td><a href="http://127.0.0.1:5000/editar_usuario/{{ usuario.id_usuario }}"><span class="btn btn-default"> Editar </span></a></td>
+            <td><a href="http://127.0.0.1:5000/del_usuario/{{ usuario.id_usuario }}"><span class="btn btn-danger"> Deletar </span></a></td>
+        </tr>
+    {% endfor %}
+</table>
+<a href="http://127.0.0.1:5000/ifpb_transportes"><span class="btn btn-primary"> Menu </span></a>
+
+{% endblock %}

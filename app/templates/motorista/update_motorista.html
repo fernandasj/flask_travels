@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h2><strong>Motorista</strong></h2>
+
+<form class="form-horizontal" action="/editar_motorista/{{ motorista.id_motorista }}" method="post" name="editar_motorista">
+  <div class="form-group">
+    <label for="Matricula" class="col-sm-2 control-label" >Matricula:
+
+    </label>
+    <div class="col-sm-10">
+      {{ form.Matricula(size=80, value=motorista.matricula) }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Nome" class="col-sm-2 control-label">Nome:
+
+    </label>
+    <div class="col-sm-10">
+      {{ form.Nome(size=80, value=motorista.nome) }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="CNH" class="col-sm-2 control-label">CNH:
+
+    </label>
+    <div class="col-sm-10">
+      {{ form.CNH(size=80, value=motorista.cnh) }}
+    </div>
+  </div>
+   <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success">Salvar</button>
+      <a href="http://127.0.0.1:5000/motorista"><span class="btn btn-danger"> Cancelar </span></a>
+    </div>
+  </div>
+</form>
+{% endblock %}
+

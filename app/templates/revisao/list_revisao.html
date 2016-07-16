@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="add">
+    <a href="http://127.0.0.1:5000/add_revisao"><span class="glyphicon glyphicon-plus">AdicionarRevisao</span></a>
+</div>
+<h2><strong> Revisões: </strong></h2>
+
+<table class="table table-condensed">
+        <tr class="success">
+            <td><strong> Id_revisao </strong></td>
+            <td><strong> Codigo </strong></td>
+            <td><strong> Cod_veiculo </strong></td>
+            <td><strong> Descricao </strong></td>
+            <td><strong> DATA_REVISAO </strong></td>
+        </tr>
+    {% for revisao in revisoes %}
+        <tr>
+            <td> {{ revisao.id_revisao }}</td>
+            <td> {{ revisao.codigo }} </td>
+            <td> {{ revisao.cod_veiculo }} </td>
+            <td> {{ revisao.descricao }} </td>
+            <td> {{ revisao.data_revisao }} </td>
+            <td><a href="http://127.0.0.1:5000/editar_revisao/{{ revisao.id_revisao }}"><span class="btn btn-default"> Editar </span></a></td>
+            <td><a href="http://127.0.0.1:5000/del_revisao/{{ revisao.Id_revisao }}"><span class="btn btn-danger"> Deletar </span></a></td>
+        </tr>
+    {% endfor %}
+</table>
+<a href="http://127.0.0.1:5000/ifpb_transportes"><span class="btn btn-primary"> Menu </span></a>
+
+{% endblock %}
