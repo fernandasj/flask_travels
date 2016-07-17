@@ -3,7 +3,7 @@
 
 <h2><strong>Finalizar Viagem:</strong></h2>
 
-<form class="form-horizontal" action="/finalizar_viagem/" method="post" name="finalizar_viagem">
+<form class="form-horizontal" action="/finalizar_viagem/{{ viagem.id_viagem }}" method="post" name="finalizar_viagem">
   <div class="form-group">
     <label for="DATA_CHEGADA" class="col-sm-2 control-label">DATA_CHEGADA:
     </label>
@@ -19,4 +19,10 @@
       <input type="text" class="form-control" id="KM_CHEGADA" name="KM_CHEGADA">
     </div>
   </div>
+  <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success">Salvar</button>
+      <a href="http://127.0.0.1:5000/viagem"><span class="btn btn-danger"> Cancelar </span></a>
+    </div>
+  </div>
+</form>
 {% endblock %}
