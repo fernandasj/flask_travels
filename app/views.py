@@ -100,7 +100,7 @@ def list_usuario():
 
     return render_template('usuario/list_usuario.html', title="Lista de Usuarios", usuarios=usuarios)
 
-@app.route('/del_usuario/<id_usuario>', methods=['GET', 'POST'])
+@app.route('/del_usuario/<id_usuario>', methods=['GET'])
 def delete(id_usuario):
 
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
@@ -162,7 +162,7 @@ def editar_veiculo(id_veiculo=None):
     return render_template('veiculo/update_veiculo.html', veiculo=veiculo, form=form, title='Editar Veiculo')
 
 
-@app.route('/del_veiculo/<id_veiculo>', methods = ['POST', 'GET'])
+@app.route('/del_veiculo/<id_veiculo>', methods = ['GET'])
 def delete_veiculo(id_veiculo):
 
     if request.method == 'GET':
@@ -172,7 +172,6 @@ def delete_veiculo(id_veiculo):
 
         return redirect(url_for('veiculo'))
 
-    return redirect(url_for('veiculo'))
 
 #motorista
 @app.route('/motorista')
@@ -231,7 +230,7 @@ def editar_motorista(id_motorista=None):
     motorista = cur.fetchone()
     return render_template('motorista/update_motorista.html', motorista=motorista, form=form, title='Editar Motorista')
 
-@app.route('/del_motorista/<id_motorista>', methods=['POST', 'GET'])
+@app.route('/del_motorista/<id_motorista>', methods=['GET'])
 def del_motorista(id_motorista):
 
     if request.method == 'GET':
@@ -241,7 +240,6 @@ def del_motorista(id_motorista):
 
         return redirect(url_for('motorista'))
 
-    return redirect(url_for('motorista'))
 
 #viagem
 @app.route('/viagem')
@@ -309,7 +307,7 @@ def editar_viagem(id_viagem=None):
     return render_template('viagem/update_viagem.html', viagem=viagem, form=form, title='Editar Viagem')
 
 
-@app.route('/del_viagem/<id_viagem>', methods=['POST', 'GET'])
+@app.route('/del_viagem/<id_viagem>', methods=['GET'])
 def delete_viagem(id_viagem):
     if request.method == 'GET':
         cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
@@ -317,8 +315,6 @@ def delete_viagem(id_viagem):
         conn.commit()
 
         return redirect(url_for('viagem'))
-
-    return redirect(url_for('viagem'))
 
 @app.route('/finalizar_viagem/<id_viagem>', methods=['GET', 'POST'])
 def finalizar_viagem(id_viagem):
@@ -401,7 +397,7 @@ def editar_revisao(id_revisao=None):
     return render_template('revisao/update_revisao.html', revisao=revisao, form=form, title='Editar Revisao')
 
 
-@app.route('/del_revisao/<id_revisao>', methods=['POST', 'GET'])
+@app.route('/del_revisao/<id_revisao>', methods=['GET'])
 def delete_revisao(id_revisao):
     if request.method == 'GET':
         cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
@@ -409,5 +405,3 @@ def delete_revisao(id_revisao):
         conn.commit()
 
         return redirect(url_for('revisao'))
-
-    return redirect(url_for('revisao'))
