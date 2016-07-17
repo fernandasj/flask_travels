@@ -263,15 +263,13 @@ def add_viagem():
         Cod_veiculo = request.form['Cod_veiculo']
         Cod_motorista = request.form['Cod_motorista']
         DATA_SAIDA = request.form['DATA_SAIDA']
-        DATA_CHEGADA = request.form['DATA_CHEGADA']
         KM_SAIDA = request.form['KM_SAIDA']
-        KM_CHEGADA = request.form['KM_CHEGADA']
         Solicitante = request.form['Solicitante']
         Descricao = request.form['Descricao']
 
         cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-        cur.execute("INSERT INTO viagem (cod_veiculo, cod_motorista, data_saida, data_chegada, km_saida, km_chegada, solicitante, descricao) VALUES  ('%s', '%s', '%s', '%s', '%s','%s', '%s', '%s')"%
-            (Cod_veiculo, Cod_motorista, DATA_SAIDA, DATA_CHEGADA, KM_SAIDA, KM_CHEGADA, Solicitante,Descricao))
+        cur.execute("INSERT INTO viagem (cod_veiculo, cod_motorista, data_saida, km_saida, solicitante, descricao) VALUES  ( '%s', '%s', '%s','%s', '%s', '%s')"%
+            (Cod_veiculo, Cod_motorista, DATA_SAIDA, KM_SAIDA, Solicitante, Descricao))
 
         cur.execute("UPDATE veiculo SET status = 'Viajando' WHERE id_veiculo = '%s'"% Cod_veiculo)
 
@@ -344,6 +342,8 @@ def finalizar_viagem(id_viagem):
 
         conn.commit()
 
+        return render_template('viagem/finalizar_viagem.html', form=form, title='Finalizar Viagem')
+    return render_template('viagem/finalizar_viagem.html', form=form, title='Finalizar Viagem')
 
 #revisao
 @app.route('/revisao')

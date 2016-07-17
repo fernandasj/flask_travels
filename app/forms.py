@@ -1,7 +1,7 @@
 # coding=utf-8
 
 from flask.ext.wtf import Form
-from wtforms import StringField, BooleanField
+from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired
 
 
@@ -51,4 +51,4 @@ class LoginForm(Form):
 
 class FinalizarForm(Form):
     DATA_CHEGADA = StringField('DATA_CHGADA')
-    KM_CHEGADA = StringField('KM_CHEGADA')
+    KM_CHEGADA = IntegerField('KM_CHEGADA')
