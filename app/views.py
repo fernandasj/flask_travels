@@ -322,6 +322,28 @@ def delete_viagem(id_viagem):
 
     return redirect(url_for('viagem'))
 
+@app.route('/finalizar_viagem/<id_viagem>', methods=['GET', 'POST'])
+def finalizar_viagem(id_viagem):
+    form = FinalizarForm()
+
+    if request.method == 'POST':
+        DATA_CHEGADA = request.form['DATA_CHEGADA']
+        KM_CHEGADA = request.form['KM_CHEGADA']
+
+        cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+        cur.execute("INSERT INTO viagem (data_chegada, km_chegada, status) VALUES ('%s', '%s', 'Finalizada')"%(DATA_CHEGADA, KM_CHEGADA))
+
+        cod_veiculo = cur.execute("SELECT cod_veiculo FROM viagem WHERE id_viagem = '%s'"%id_viagem)
+        cur.execute("UPDATE veiculo SET status = 'Livre' WHERE id_veiculo = '%s'"%cod_veiculo)
+
+        km_saida = cur.execute("SELECT km_saida FROM viagem WHERE id_viagem = '%s'"%id_viagem)
+        if (KM_CHEGADA - km_saida >= 1000):
+            cur.execute("UPDATE veiculo SET status = 'Precisa de Revisao' WHERE id_veiculo = '%s'"%cod_veiculo)
+        else:
+            cur.execute("UPDATE veiculo SET status = 'Livre' WHERE id_veiculo = '%s'"%cod_veiculo)
+
+        conn.commit()
+
 
 #revisao
 @app.route('/revisao')
