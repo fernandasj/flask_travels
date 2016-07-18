@@ -9,7 +9,6 @@
 <table class="table table-condensed">
         <tr class="success">
             <td><strong> Id_revisao </strong></td>
-            <td><strong> Codigo </strong></td>
             <td><strong> Cod_veiculo </strong></td>
             <td><strong> Descricao </strong></td>
             <td><strong> DATA_REVISAO </strong></td>
@@ -17,7 +16,6 @@
     {% for revisao in revisoes %}
         <tr>
             <td> {{ revisao.id_revisao }}</td>
-            <td> {{ revisao.codigo }} </td>
             <td> {{ revisao.cod_veiculo }} </td>
             <td> {{ revisao.descricao }} </td>
             <td> {{ revisao.data_revisao }} </td>

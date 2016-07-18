@@ -200,7 +200,8 @@ def add_motorista():
 
         conn.commit()
 
-        return render_template('motorista/create_motorista.html', title="Adicionar Motorista", form=form)
+        return redirect(url_for('motorista'))
+        # return render_template('motorista/create_motorista.html', title="Adicionar Motorista", form=form)
 
     #GET
     return render_template('motorista/create_motorista.html', title="Adicionar Motorista", form=form)
@@ -275,7 +276,15 @@ def add_viagem():
 
         return render_template('viagem/create_viagem.html', title="Adicionar Viagem", form=form)
 
-    return render_template('viagem/create_viagem.html', title="Adicionar Viagem", form=form)
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    cur.execute("""SELECT * FROM motorista WHERE status is null""")
+    motoristas = cur.fetchall()
+
+    # cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    cur.execute("""SELECT * FROM veiculo""")
+    veiculos = cur.fetchall()
+
+    return render_template('viagem/create_viagem.html', title="Adicionar Viagem", form=form, motoristas=motoristas,veiculos=veiculos)
 
 @app.route('/editar_viagem/<id_viagem>', methods=['GET', 'POST'])
 def editar_viagem(id_viagem=None):
@@ -378,7 +387,10 @@ def add_revisao():
         return render_template('revisao/create_revisao.html', title="Adicionar Revisao", form=form)
 
     #GET
-    return render_template('revisao/create_revisao.html', title="Adicionar Revisao", form=form)
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    cur.execute("""SELECT * FROM veiculo""")
+    veiculos = cur.fetchall()
+    return render_template('revisao/create_revisao.html', title="Adicionar Revisao", form=form, veiculos=veiculos)
 
 @app.route('/editar_revisao/<id_revisao>', methods=['GET', 'POST'])
 def editar_revisao(id_revisao=None):
