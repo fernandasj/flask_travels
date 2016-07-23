@@ -238,7 +238,6 @@ def del_motorista(id_motorista):
         cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         cur.execute("""UPDATE motorista SET status = 'Removido' WHERE Id_motorista = '%s'""" % id_motorista)
         conn.commit()
-
         return redirect(url_for('motorista'))
 
 
@@ -248,7 +247,6 @@ def viagem():
     cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     cur.execute("""SELECT * FROM viagem WHERE status is null""")
     viagens = cur.fetchall()
-
     return render_template('viagem/list_viagem.html', title="Lista de Viagens", viagens=viagens)
 
 
