@@ -421,3 +421,6 @@ def delete_revisao(id_revisao):
         conn.commit()
 
         return redirect(url_for('revisao'))
+
+if __name__ == '__main__':
+    app.run()
