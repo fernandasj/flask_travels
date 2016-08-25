@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="add">
-    <a href="http://127.0.0.1:5000/add_veiculo"><span class="glyphicon glyphicon-plus">AdicionarVeiculo</span></a>
+    <a href="{{url_for('add_veiculo')}}"><span class="glyphicon glyphicon-plus">AdicionarVeiculo</span></a>
 </div>
 <h2><strong> Veiculos: </strong></h2>
 
@@ -19,11 +19,11 @@
             <td> {{ veiculo.placa }} </td>
             <td> {{ veiculo.modelo }} </td>
             <td> {{ veiculo.status.decode('utf-8') }} </td>
-            <td><a href="http://127.0.0.1:5000/editar_veiculo/{{ veiculo.id_veiculo }}"><span class="btn btn-default"> Editar </span></a></td>
-            <td><a href="http://127.0.0.1:5000/del_veiculo/{{ veiculo.id_veiculo }}"><span class="btn btn-danger"> Deletar </span></a></td>
+            <td><a href="{{url_for('editar_veiculo')}}/{{ veiculo.id_veiculo }}"><span class="btn btn-default"> Editar </span></a></td>
+            <td><a href="{{url_for('del_veiculo')}}/{{ veiculo.id_veiculo }}"><span class="btn btn-danger"> Deletar </span></a></td>
         </tr>
     {% endfor %}
 </table>
-<a href="http://127.0.0.1:5000/ifpb_transportes"><span class="btn btn-primary"> Menu </span></a>
+<a href="{{url_for('ifpb_transportes')}}"><span class="btn btn-primary"> Menu </span></a>
 
 {% endblock %}

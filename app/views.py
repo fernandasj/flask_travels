@@ -14,9 +14,11 @@ try:
 except:
     print "falha ao conectar com o banco"
 
+
 @app.route('/', methods=['POST', 'GET'])
 @app.route('/login', methods=['POST', 'GET'])
 def login():
+
 
     form = LoginForm()
 
@@ -44,13 +46,15 @@ def login():
 def menu():
     return render_template('index.html', title='IFPB Transportes')
 
-#usuario
+# usuario
+
 @app.route('/add_usuario', methods=['GET', 'POST'])
 def add_usuario():
 
     form = UsuarioForm()
 
-    #POST
+    # POST
+
     if request.method == 'POST':
         Matricula = request.form['Matricula']
         Nome = request.form['Nome']

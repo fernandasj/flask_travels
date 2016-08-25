@@ -2,9 +2,9 @@
 {% block content %}
 <div class="col-xs-12 col-md-12">
 	<td>
-		<a class="btn btn-success" href="http://127.0.0.1:5000/list_usuario" role="button">Usuário</a>
+		<a class="btn btn-success" href="{{url_for('list_usuario')}}" role="button">Usuário</a>
 	<td>
-		<a class="btn btn-success" href="http://127.0.0.1:5000/login" role="button">Sair</a>
+		<a class="btn btn-success" href="{{url_for ('login')}}" role="button">Sair</a>
 	</td>
 </div>
 <div class="menu_div">

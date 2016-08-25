@@ -2,7 +2,7 @@
 {% block content %}
 <div class="center">
 <div class="add">
-    <a href="http://127.0.0.1:5000/add_viagem"><span class="glyphicon glyphicon-plus">AdicionarViagem</span></a>
+    <a href="{{url_for ('add_viagem')}}"><span class="glyphicon glyphicon-plus">AdicionarViagem</span></a>
 </div>
 <h2><strong> Viagens: </strong></h2>
 
@@ -29,14 +29,14 @@
             <td> {{ viagem.km_chegada }} </td>
             <td> {{ viagem.solicitante.decode('utf-8') }} </td>
             <td> {{ viagem.descricao.decode('utf-8')}} </td>
-            <td><a href="http://127.0.0.1:5000/editar_viagem/{{ viagem.id_viagem }}"><span class="btn btn-default"> Editar </span></a></td>
-            <td><a href="http://127.0.0.1:5000/finalizar_viagem/{{ viagem.id_viagem }}"><span class="btn btn-primary"> Finalizar </span></a></td>
-            <td><a href="http://127.0.0.1:5000/del_viagem/{{ viagem.id_viagem }}"><span class="btn btn-danger"> Deletar </span></a></td>
+            <td><a href="{{url_for ('editar_viagem')}}/{{ viagem.id_viagem }}"><span class="btn btn-default"> Editar </span></a></td>
+            <td><a href="{{url_for ('finalizar_viagem')}}/{{ viagem.id_viagem }}"><span class="btn btn-primary"> Finalizar </span></a></td>
+            <td><a href="{{url_for ('del_viagem')}}/{{ viagem.id_viagem }}"><span class="btn btn-danger"> Deletar </span></a></td>
 
         </tr>
     {% endfor %}
 </table>
-<a href="http://127.0.0.1:5000/ifpb_transportes"><span class="btn btn-primary"> Menu </span></a>
+<a href="{{url_for ('ifpb_transportes')}}"><span class="btn btn-primary"> Menu </span></a>
 </div>
 {% endblock %}
 

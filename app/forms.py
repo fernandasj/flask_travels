@@ -2,7 +2,6 @@
 
 from flask_wtf import Form
 from wtforms import StringField, IntegerField
-from wtforms.validators import DataRequired
 
 
 class VeiculoForm(Form):
@@ -11,12 +10,14 @@ class VeiculoForm(Form):
     Modelo = StringField('Modelo')
     Status = StringField('Status')
 
+
 class MotoristaForm(Form):
     Id_motorista = StringField('Id_motorista')
     Matricula = StringField('Matricula')
     Nome = StringField('Nome')
     CNH = StringField('CNH')
     Status = StringField('Status')
+
 
 class ViagemForm(Form):
     Id_viagem = StringField('Id_viagem')
@@ -30,12 +31,14 @@ class ViagemForm(Form):
     Descricao = StringField('Descricao')
     Status = StringField('Status')
 
+
 class RevisaoForm(Form):
     Id_revisao = StringField('Id_revisao')
     Cod_veiculo = StringField('Cod_veiculo')
     Descricao = StringField('Descricao')
     DATA_REVISAO = StringField('DATA_REVISAO')
     Status = StringField('Status')
+
 
 class UsuarioForm(Form):
     Id_usuario = StringField('Id_usuario')
@@ -45,9 +48,11 @@ class UsuarioForm(Form):
     Email = StringField('Email')
     Senha = StringField('Senha')
 
+
 class LoginForm(Form):
     Matricula = StringField('Matricula')
     Senha = StringField('Senha')
+
 
 class FinalizarForm(Form):
     DATA_CHEGADA = StringField('DATA_CHGADA')

@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="add">
-    <a href="http://127.0.0.1:5000/add_usuario"><span class="glyphicon glyphicon-plus">AdicionarUsuario</span></a>
+    <a href={{url_for('add_usuario')}}><span class="glyphicon glyphicon-plus">AdicionarUsuario</span></a>
 </div>
 <h2><strong> Usuarios: </strong></h2>
 
@@ -23,11 +23,11 @@
             <td> {{ usuario.cpf }} </td>
             <td> {{ usuario.email }} </td>
 
-            <td><a href="http://127.0.0.1:5000/editar_usuario/{{ usuario.id_usuario }}"><span class="btn btn-default"> Editar </span></a></td>
-            <td><a href="http://127.0.0.1:5000/del_usuario/{{ usuario.id_usuario }}"><span class="btn btn-danger"> Deletar </span></a></td>
+            <td><a href="{{url_for('editar_usuario')}}/{{ usuario.id_usuario }}"><span class="btn btn-default"> Editar </span></a></td>
+            <td><a href="{{ url_for ('del_usuario')}}/{{ usuario.id_usuario }}"><span class="btn btn-danger"> Deletar </span></a></td>
         </tr>
     {% endfor %}
 </table>
-<a href="http://127.0.0.1:5000/ifpb_transportes"><span class="btn btn-primary"> Menu </span></a>
+<a href="{{url_for('ifpb_transportes')}}"><span class="btn btn-primary"> Menu </span></a>
 
 {% endblock %}
